@@ -8,6 +8,7 @@ pipeline {
 	  
 	        steps {
 		        echo "building the application..."
+			echo "change made June 26, 2020 at 1029"
 		    }
         }
 
