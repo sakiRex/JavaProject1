@@ -29,7 +29,7 @@ pipeline {
 	        steps {
 		        echo "deploying the application..."
 			withCredentials([
-			    usernamePassword(credentials: 'demo-app-git-credentials', usernameVariable: USER, passwordVariable: PWD)
+			    usernamePassword(credentials: SERVER_CREDENTIALS, usernameVariable: USER, passwordVariable: PWD)
 			]) {
 				echo "here we can run some script that makes use of username: ${USER} and password: ${PWD}"
 			}
