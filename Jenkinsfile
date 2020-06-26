@@ -13,6 +13,7 @@ pipeline {
 	  
 	        steps {
 		        echo "building the application..."
+			echo "version ${NEW_VERSION}"
 		    }
         }
 
@@ -30,7 +31,7 @@ pipeline {
 			withCredentials([
 			    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
 			]) {
-				echo "here we can run some script that makes use of username: ${USER} password: ${PWD}"
+			    echo "here we can run some script that makes use of password: ${PWD}"
 			}
 		    }
         }
