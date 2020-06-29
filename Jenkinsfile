@@ -23,7 +23,7 @@ pipeline {
         stage("build") {
 	  
 	        steps {
-		        echo "building the application..."
+		        echo "Jenkinsfile: building the application..."
 			echo "version ${NEW_VERSION}"
 			script (
   			        gv.buildApp()
@@ -34,11 +34,11 @@ pipeline {
         stage("test") {
 		//when {
 		//	expression {
-		//		${params.executeTests}
+		//		$params.executeTests
 		//	}
 		//}
 	        steps {
-		        echo "testing the application..."
+		        echo "Jenkinsfile: testing the application..."
 			script {
 			        gv.testApp()
 			}
@@ -48,8 +48,8 @@ pipeline {
         stage("deploy") {
 	  
 	        steps {
-		        echo "deploying the application..."
-			echo "deploying version ${params.VERSION}"
+		        echo "Jenkinsfile: deploying the application..."
+			echo "Jenkinsfile: deploying version ${params.VERSION}"
 			//withCredentials([
 			//    usernamePassword(credentials: 'demo-app-git-credentials', usernameVariable: USER, passwordVariable: PWD)
 			//]) {
