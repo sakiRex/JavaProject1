@@ -12,23 +12,36 @@ pipeline {
     }
 
     stages { // where the work happens
-   
+        stage("init") {
+	  
+	        steps {
+			script {
+				gv = load "script.groovy"
+			}
+		}
+        }   
         stage("build") {
 	  
 	        steps {
 		        echo "building the application..."
 			echo "version ${NEW_VERSION}"
+			script (
+  			        gv.buildApp()
+			}
 		}
         }
 
         stage("test") {
-		when {
-			expression {
-				${params.executeTests}
-			}
-		}
+		//when {
+		//	expression {
+		//		${params.executeTests}
+		//	}
+		//}
 	        steps {
-		        echo "testing the application..."		 
+		        echo "testing the application..."
+			script {
+			        gv.testApp()
+			}
 		}
         }
 
