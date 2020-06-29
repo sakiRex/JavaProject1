@@ -1,11 +1,11 @@
 def buildApp() {
-     echo 'building the application..."
+     echo 'script.groovy: building the application..."
 }
 def testApp() {
-     echo 'testing the application..."
+     echo 'script.groovy: testing the application..."
 }
 def deployApp() {
-     echo 'deploying the application..."
-     echo "deploying version ${params.VERSION}"
+     echo 'script.groovy: deploying the application..."
+     echo "script.groovy: deploying version ${params.VERSION}"
 }
 return this
