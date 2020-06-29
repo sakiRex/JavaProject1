@@ -30,7 +30,7 @@ pipeline {
 			withCredentials([
 			    usernamePassword(credentials: 'demo-app-git-credentials', usernameVariable: USER, passwordVariable: PWD)
 			]) {
-				echo "here we can run some script that makes use of username: ${USER} and password: ${PWD}"
+		            echo "here we can run some script that makes use of username: ${USER} and password: ${PWD}"
 			}
 		    }
         }
