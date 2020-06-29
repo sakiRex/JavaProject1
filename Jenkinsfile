@@ -55,6 +55,9 @@ pipeline {
 			//]) {
 		        //    echo "here we can run some script that makes use of username: ${USER} and password: ${PWD}"
 			//}
+			script {
+			        gv.deployApp()
+			}
 		}
         }
     }
