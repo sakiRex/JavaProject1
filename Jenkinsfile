@@ -23,9 +23,9 @@ pipeline {
 
         stage("test") {
 		when {
-			expression {
-			     param.executeTests == true
-			}
+			//expression {
+			//     param.executeTests == true
+			//}
 		}
 	        steps {
 		        echo "testing the application..."		 
