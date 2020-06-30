@@ -1,5 +1,4 @@
-def gv
-
+//def gv
 pipeline {
 
     agent any // where to execute
@@ -14,41 +13,38 @@ pipeline {
     }
 
     stages { // where the work happens
-        stage("init") {
-	  
-	        steps {
-			script {
-				gv = load "script.groovy"
-			}
-		}
-        }   
+        //stage("init") { 
+	//        steps {
+	//		script {
+	//			gv = load "script.groovy"
+	//		}
+	//	}
+        //}   
         stage("build") {
-	  
 	        steps {
 		        echo "Jenkinsfile: building the application..."
 			echo "version ${NEW_VERSION}"
-			script (
-  			        gv.buildApp()
-			}
+			//script (
+  			//        gv.buildApp()
+			//}
 		}
         }
 
         stage("test") {
-		//when {
-		//	expression {
-		//		$params.executeTests
-		//	}
-		//}
+		when {
+			expression {
+				params.executeTests
+			}
+		}
 	        steps {
 		        echo "Jenkinsfile: testing the application..."
-			script {
-			        gv.testApp()
-			}
+			//script {
+			//       gv.testApp()
+			//}
 		}
         }
 
         stage("deploy") {
-	  
 	        steps {
 		        echo "Jenkinsfile: deploying the application..."
 			echo "Jenkinsfile: deploying version ${params.VERSION}"
@@ -57,9 +53,9 @@ pipeline {
 			//]) {
 		        //    echo "here we can run some script that makes use of username: ${USER} and password: ${PWD}"
 			//}
-			script {
-			        gv.deployApp()
-			}
+			//script {
+			//        gv.deployApp()
+			//}
 		}
         }
     }
