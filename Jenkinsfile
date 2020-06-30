@@ -1,7 +1,7 @@
 pipeline {
      agent any
      tools {
-          gradle 'Gradle-6.2'
+          gradle 'Gradle'
      }
      stages {
           stage("run backend") {
