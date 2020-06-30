@@ -1,4 +1,4 @@
-//def gv
+def gv
 pipeline {
 
     agent any // where to execute
@@ -13,20 +13,20 @@ pipeline {
     }
 
     stages { // where the work happens
-        //stage("init") { 
-	//        steps {
-	//		script {
-	//			gv = load "script.groovy"
-	//		}
-	//	}
-        //}   
+        stage("init") { 
+	        steps {
+			script {
+				gv = load "script.groovy"
+			}
+		}
+        }   
         stage("build") {
 	        steps {
 		        echo "Jenkinsfile: building the application..."
 			echo "version ${NEW_VERSION}"
-			//script (
-  			//        gv.buildApp()
-			//}
+			script (
+  			        gv.buildApp()
+			}
 		}
         }
 
